@@ -33,3 +33,22 @@ This repository provides a step-by-step tutorial for deploying osTicket, a suppo
 2. Install IIS (Internet Information Services):
    ```powershell
    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+
+### **Step 4: Add Supporting Files**
+1. **Images:**
+   - Take screenshots at each step (e.g., VM creation, osTicket setup wizard).
+   - Save them in the `images/` folder and reference them in the Markdown.
+
+2. **Scripts (Optional):**
+   - Add a script for automating server setup (e.g., PowerShell commands for installing IIS).
+
+3. **Resources Folder:**
+   - Include any configuration files or templates needed for the tutorial.
+
+---
+
+### **Step 5: Commit and Push to GitHub**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/osticket-azure-tutorial.git
+   cd osticket-azure-tutorial
