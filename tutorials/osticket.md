@@ -60,18 +60,18 @@ Use Remote Desktop to connect to your Azure Virtual Machine.
 
 ### Step 8: Continue Setup in Browser  
 1. In your browser, set up osTicket:  
-   - Name: Helpdesk  
+   - Name: xxxx  
    - Email: Use your email.  
-   - Admin Username: `user_admin`  
-   - Password: `Password1`  
+   - Admin Username: `xxxx`  
+   - Password: `xxxx`  
 
 ---
 
 ### Step 9: Install HeidiSQL and Create Database  
 1. Download and install [HeidiSQL](https://www.heidisql.com/).  
 2. Open HeidiSQL and connect:  
-   - Username: `root`  
-   - Password: `Password1`.  
+   - Username: `xxxx`  
+   - Password: `xxxx`.  
 3. Right-click and create a new database named `osTicket`.  
 
 ---
