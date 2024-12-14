@@ -34,6 +34,12 @@ This repository provides a step-by-step tutorial for deploying osTicket, a suppo
    ```powershell
    Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
+## 4. Connect to the VM
+- Use SSH to connect:
+
+```bash
+ssh username@<Public-IP>
+
 ### **Step 4: Add Supporting Files**
 1. **Images:**
    - Take screenshots at each step (e.g., VM creation, osTicket setup wizard).
