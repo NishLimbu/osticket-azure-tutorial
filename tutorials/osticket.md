@@ -2,59 +2,109 @@
 
 This repository provides a step-by-step tutorial for deploying osTicket, a support ticketing system, on a virtual machine in Microsoft Azure.
 
-## Prerequisites
-1. An Azure account (create one at [Azure Portal](https://portal.azure.com)).
-2. Basic understanding of Azure and virtual machines.
-3. Remote Desktop Protocol (RDP) client installed.
+# osTicket - Prerequisites and Installation  
+This guide outlines the prerequisites and step-by-step installation of the osTicket helpdesk system on a virtual machine in Microsoft Azure.  
 
-## Steps
+## Technologies Used  
+- Microsoft Azure (Virtual Machines/Compute)  
+- Remote Desktop  
+- Internet Information Services (IIS)  
 
-### Step 1: Create a Virtual Machine
-1. Log in to the [Azure Portal](https://portal.azure.com).
-2. Navigate to **Virtual Machines** and click **+ Create**.
-3. Fill out the required fields:
-   - **Resource Group**: Create or use an existing one.
-   - **VM Name**: `osticket-vm`.
-   - **Region**: Choose your preferred location.
-   - **Image**: Select `Windows Server 2022 Datacenter`.
-   - **Size**: Use `Standard_B1ls` or equivalent.
-   - **Administrator Account**: Set username and password.
-4. Click **Review + Create**, then **Create**.
-
-![Virtual Machine Creation](./images/vm-creation.png)
-
-### Step 2: Connect to the Virtual Machine
-1. Once the VM is deployed, go to the **Virtual Machines** section in Azure.
-2. Select your VM and click **Connect > RDP**.
-3. Download the RDP file and log in using the credentials created earlier.
-
-### Step 3: Install Prerequisites on the VM
-1. Open PowerShell as Administrator.
-2. Install IIS (Internet Information Services):
-   ```powershell
-   Install-WindowsFeature -name Web-Server -IncludeManagementTools
-
-## 4. Connect to the VM
-- Use SSH to connect:
-
-```bash
-ssh username@<Public-IP>
-
-### **Step 4: Add Supporting Files**
-1. **Images:**
-   - Take screenshots at each step (e.g., VM creation, osTicket setup wizard).
-   - Save them in the `images/` folder and reference them in the Markdown.
-
-2. **Scripts (Optional):**
-   - Add a script for automating server setup (e.g., PowerShell commands for installing IIS).
-
-3. **Resources Folder:**
-   - Include any configuration files or templates needed for the tutorial.
+## Operating System  
+- Windows 10  
 
 ---
 
-### **Step 5: Commit and Push to GitHub**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/osticket-azure-tutorial.git
-   cd osticket-azure-tutorial
+## Prerequisites  
+1. **Microsoft Azure Account**  
+2. **Virtual Machine (VM)**  
+3. **osTicket Installation Files**  
+
+---
+
+## Installation Steps  
+
+### Step 1: Connect to the VM  
+Use Remote Desktop to connect to your Azure Virtual Machine.  
+
+---
+
+### Step 2: Enable IIS on Windows  
+1. Open the Control Panel and navigate to **Programs > Turn Windows Features On or Off**.  
+2. Check **Internet Information Services (IIS)** and click OK.  
+
+---
+
+### Step 3: Install Web Platform Installer and Configure PHP/MySQL  
+1. Download and install the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).  
+2. In the installer, search for:  
+   - **MySQL 5.5** > Click "Add".  
+   - **PHP (x86)** up to version **7.3** > Add all simple versions.  
+3. Click **Install** and follow the prompts. Use:  
+   - Username: `root`  
+   - Password: `Password1`  
+4. Ignore installation errors if any, and finish.  
+5. Download and install:  
+   - PHP Version 7.3.8  
+   - PHP Manager 1.5.0 for IIS  
+   - Microsoft Visual C++ 2009 Redistributable Package  
+
+---
+
+### Step 4: Install osTicket  
+1. Download osTicket and extract the files.  
+2. Move the **Upload** folder to `C:\inetpub\wwwroot` and rename it to `osTicket`.  
+
+---
+
+### Step 5: Restart IIS and Launch osTicket  
+1. Open IIS and restart the server.  
+2. Navigate to **Sites > Default Website > osTicket** and click **Browse *:80** to open osTicket in your browser.  
+
+---
+
+### Step 6: Enable PHP Extensions  
+1. In IIS, go to **Sites > Default Website > osTicket > PHP Manager**.  
+2. Enable these extensions:  
+   - `php_imap.dll`  
+   - `php_intl.dll`  
+   - `php_opcache.dll`  
+
+---
+
+### Step 7: Configure osTicket  
+1. Rename `ost-SAMPLEconfig.php` to `ost-config.php` in `C:\inetpub\wwwroot\osTicket\include`.  
+2. Set file permissions:  
+   - Right-click `ost-config.php`, select **Properties > Security > Advanced > Disable Inheritance**.  
+   - Remove inherited permissions, add **everyone**, and grant full control.  
+
+---
+
+### Step 8: Continue Setup in Browser  
+1. In your browser, set up osTicket:  
+   - Name: Helpdesk  
+   - Email: Use your email.  
+   - Admin Username: `user_admin`  
+   - Password: `Password1`  
+
+---
+
+### Step 9: Install HeidiSQL and Create Database  
+1. Download and install [HeidiSQL](https://www.heidisql.com/).  
+2. Open HeidiSQL and connect:  
+   - Username: `root`  
+   - Password: `Password1`.  
+3. Right-click and create a new database named `osTicket`.  
+
+---
+
+### Step 10: Finalize osTicket Installation  
+1. Return to your browser and complete the fields:  
+   - Database Name: `osTicket`  
+   - Username: `root`  
+   - Password: `Password1`  
+2. Click **Install Now**.  
+
+---
+
+🎉 **Congratulations! osTicket is now installed and ready to use!** 🎉
