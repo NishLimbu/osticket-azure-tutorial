@@ -85,4 +85,3 @@ Use Remote Desktop to connect to your Azure Virtual Machine.
 
 ---
 
-🎉 **Congratulations! osTicket is now installed and ready to use!** 🎉
