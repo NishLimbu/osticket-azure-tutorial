@@ -2,28 +2,6 @@
 
 This repository provides a step-by-step tutorial for deploying osTicket, a support ticketing system, on a virtual machine in Microsoft Azure.
 
-# osTicket - Prerequisites and Installation  
-This guide outlines the prerequisites and step-by-step installation of the osTicket helpdesk system on a virtual machine in Microsoft Azure.  
-
-## Technologies Used  
-- Microsoft Azure (Virtual Machines/Compute)  
-- Remote Desktop  
-- Internet Information Services (IIS)  
-
-## Operating System  
-- Windows 10  
-
----
-
-## Prerequisites  
-1. **Microsoft Azure Account**  
-2. **Virtual Machine (VM)**  
-3. **osTicket Installation Files**  
-
----
-
-## Installation Steps  
-
 ### Step 1: Connect to the VM  
 Use Remote Desktop to connect to your Azure Virtual Machine.  
 
